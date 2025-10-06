@@ -1,20 +1,20 @@
-# app1 deployment and service
+# app-one deployment and service
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app1
+  name: app-one
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: app1
+      app: app-one
   template:
     metadata:
       labels:
-        app: app1
+        app: app-one
     spec:
       containers:
-      - name: app1
+      - name: app-one
         image: nginx
         ports:
         - containerPort: 80
@@ -22,32 +22,32 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: app1
+  name: app-one
 spec:
   selector:
-    app: app1
+    app: app-one
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
 ---
-# app2 deployment and service (3 replicas)
+# app-two deployment and service (3 replicas)
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app2
+  name: app-two
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: app2
+      app: app-two
   template:
     metadata:
       labels:
-        app: app2
+        app: app-two
     spec:
       containers:
-      - name: app2
+      - name: app-two
         image: nginx
         ports:
         - containerPort: 80
@@ -55,32 +55,32 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: app2
+  name: app-two
 spec:
   selector:
-    app: app2
+    app: app-two
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
 ---
-# app3 deployment and service
+# app-three deployment and service
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app3
+  name: app-three
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: app3
+      app: app-three
   template:
     metadata:
       labels:
-        app: app3
+        app: app-three
     spec:
       containers:
-      - name: app3
+      - name: app-three
         image: nginx
         ports:
         - containerPort: 80
@@ -88,10 +88,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: app3
+  name: app-three
 spec:
   selector:
-    app: app3
+    app: app-three
   ports:
   - protocol: TCP
     port: 80
