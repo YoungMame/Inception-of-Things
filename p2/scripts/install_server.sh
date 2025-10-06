@@ -7,4 +7,6 @@ curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE=644 K3S_TOKEN=mynodetoken sh 
 
 apt install kubectl
 
-kubectl apply -f ${VAGRANT_PATH}/confs/apps.yaml
+kubectl apply -f ${VAGRANT_PATH}/confs/app-one.yaml
+kubectl apply -f ${VAGRANT_PATH}/confs/app-two.yaml
+kubectl apply -f ${VAGRANT_PATH}/confs/app-three.yaml
