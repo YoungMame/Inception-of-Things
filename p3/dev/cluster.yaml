@@ -1,0 +1,23 @@
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: mycluster
+servers: 1
+agents: 2
+kubeAPI:
+  host: "localhost"
+  hostIP: "127.0.0.1"
+  hostPort: "6445"
+image: rancher/k3s:v1.20.4-k3s1
+token: superSecretToken
+volumes:
+  - volume: /my/host/path:/path/in/node
+    nodeFilters:
+      - server:0
+      - agent:*
+ports:
+  - port: 8080:80
+    nodeFilters:
+      - loadbalancer
+
+
