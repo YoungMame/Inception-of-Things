@@ -17,11 +17,11 @@ Vagrant.configure("2") do |config|
 
         lchauvetS.vm.provision "shell", path: "./scripts/install_server.sh"
 
-            lchauvetS.vm.provider "virtualbox" do |vb|
-                vb.gui = false
-                vb.name = "lchauvetS"
-                vb.memory = "5120"
-                vb.cpus = 1
-            end
+        lchauvetS.vm.provider "virtualbox" do |vb|
+            vb.gui = false
+            vb.name = "lchauvetS"
+            vb.memory = "5120"
+            vb.cpus = 1
+        end
     end
 end
