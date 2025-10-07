@@ -10,3 +10,5 @@ apt install kubectl
 kubectl apply -f ${VAGRANT_PATH}/confs/app-one.yaml
 kubectl apply -f ${VAGRANT_PATH}/confs/app-two.yaml
 kubectl apply -f ${VAGRANT_PATH}/confs/app-three.yaml
+
+kubectl apply -f ${VAGRANT_PATH}/confs/ingress.yaml
