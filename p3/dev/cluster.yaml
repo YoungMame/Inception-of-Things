@@ -9,7 +9,7 @@ kubeAPI:
   hostIP: "127.0.0.1"
   hostPort: "6445"
 image: rancher/k3s:v1.20.4-k3s1
-token: superSecretToken
+token: superSecretToken # TODO Change this token to a non hardcoded value
 volumes:
   - volume: /my/host/path:/path/in/node
     nodeFilters:
