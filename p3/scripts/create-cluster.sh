@@ -14,4 +14,5 @@ else
     --cert=tls.crt --key=tls.key -n argocd
     rm tls.crt tls.key
     kubectl apply -f ./argocd/ingress.yaml
+    kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d > admin_password.txt
 fi
