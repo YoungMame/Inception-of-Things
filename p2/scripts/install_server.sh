@@ -3,7 +3,7 @@ VAGRANT_PATH="/home/vagrant";
 cp ${VAGRANT_PATH}/confs/config.yaml /etc/rancher/k3s/config.yaml
 
 echo "Installing k3s in server mode..."
-curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE=644 K3S_TOKEN=mynodetoken sh -
+curl -sfL https://get.k3s.io | KUBECONFIG_MODE=644 sh -
 
 apt install kubectl
 
