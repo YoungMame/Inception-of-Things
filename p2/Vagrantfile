@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+    config.vm.box = "onlyoffice/base-debian13"
+    config.vm.box_version = "1.0.0"
+
+    config.vm.define "lchauvetS" do |lchauvetS|
+        lchauvetS.vm.hostname = "lchauvetS"
+
+        lchauvetS.vm.network "private_network", ip: "192.168.42.110"
+
+        lchauvetS.vm.provision "file", source: "./confs/config.yaml", destination: "/home/vagrant/config.yaml"
+
+        lchauvetS.vm.synced_folder "./confs", "/home/vagrant/confs"
+
+        lchauvetS.vm.provision "shell", path: "./scripts/install_server.sh"
+
+        lchauvetS.vm.provider "virtualbox" do |vb|
+            vb.gui = false
+            vb.name = "lchauvetS"
+            vb.memory = "5120"
+            vb.cpus = 1
+        end
+    end
+end
