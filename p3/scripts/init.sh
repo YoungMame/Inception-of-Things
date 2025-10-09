@@ -3,6 +3,9 @@
 sudo k3d cluster delete p3-cluster
 sudo k3d cluster create p3-cluster
 
+k3d kubeconfig merge p3-cluster --kubeconfig-merge-default
+kubectl config use-context k3d-p3-cluster
+
 sudo kubectl create namespace argocd
 sudo kubectl create namespace dev
 sudo kubectl create namespace gitlab

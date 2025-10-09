@@ -3,8 +3,12 @@
 sudo k3d cluster delete p3-cluster
 sudo k3d cluster create p3-cluster
 
+k3d kubeconfig merge p3-cluster --kubeconfig-merge-default
+kubectl config use-context k3d-p3-cluster
+
 sudo kubectl create namespace argocd
 sudo kubectl create namespace dev
+sudo kubectl create namespace gitlab
 sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 sudo kubectl config set-context --current --namespace=argocd
@@ -27,7 +31,7 @@ sudo kubectl port-forward svc/will42 -n dev 8888:8888
 # Gitlab using helm
 helm repo add gitlab https://charts.gitlab.io/
 helm repo update
-helm upgrade --install -n gitlab gitlab gitlab/gitlab \
+helm upgrade --insecure-skip-tls-verify --install -n gitlab gitlab gitlab/gitlab \
   --timeout 600s \
   --set global.hosts.domain=ourgitlab.com \
   --set global.hosts.externalIP=192.168.42.110 \
