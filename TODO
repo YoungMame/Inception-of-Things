@@ -1,0 +1,1 @@
+change kubectl port-forward svc/will42 to not fail on version change
