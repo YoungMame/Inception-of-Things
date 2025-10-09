@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Gpatrix/42.Inception-of-Things.manifests.git
-    targetRevision: main
+    repoURL: https://github.com/Gpatrix/42.lchauvet.Inception-of-Things.manifests
+    targetRevision: HEAD
     path: main
   destination:
     server: https://kubernetes.default.svc
