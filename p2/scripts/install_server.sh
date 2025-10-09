@@ -12,3 +12,6 @@ kubectl apply -f ${VAGRANT_PATH}/confs/app-two.yaml
 kubectl apply -f ${VAGRANT_PATH}/confs/app-three.yaml
 
 kubectl apply -f ${VAGRANT_PATH}/confs/ingress.yaml
+
+echo waiting for pods to be ready...
+kubectl wait --for=condition=ready --timeout=600s pods --all
